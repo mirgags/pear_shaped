@@ -28,7 +28,7 @@ def wants_fruit(answer, yeses, nos):
 # adds requested fruit to list
 def add_fruit(fruits):
     fruits.append(raw_input("What is it? > "))
-    print "Oh ok, I'll bring some %s next time." % fruits[(len(fruits) - 1)]
+    print "Oh ok, I'll bring some %s next time." % fruits[-1]
     return fruits
 
 # beginning of interactivw program
@@ -48,9 +48,12 @@ while more_fruit != 'no_fruit':
         more_fruit = ""
         answer = raw_input("Is there any fruit you like that I didn't offer? > ")
 
+fruits.sort()
+
 # opens and writes list to text file
 writefile = open('fruitlist.txt', 'w')
 
 for fruit in fruits:
     writefile.write("%s\n" % fruit)
 
+writefile.close()
